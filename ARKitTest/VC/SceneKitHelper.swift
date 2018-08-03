@@ -10,16 +10,25 @@ import Foundation
 import SceneKit
 
 class SceneKitHelper {
-    private static let folder: String = "art.scnassets/"
+    private static let folder: String = "art.scnassets"
     private static let kHighlightingNode = "HighlightingNode"
     
-    
     static func loadDaeNamed(name: String) -> SCNScene?{
-        return SCNScene.init(named: "\(folder)\(name).dae")
+        return SCNScene.init(named: "\(folder)/\(name).dae")
     }
     
     static func loadScnNamed(name: String) -> SCNScene?{
-        return SCNScene.init(named: "\(folder)\(name).scn")
+        return SCNScene.init(named: "\(folder)/\(name).scn")
+    }
+    
+    static func getRootNodeNamed(_ name: String) -> SCNNode?{
+        if let obj = SceneKitHelper.loadDaeNamed(name: name) {
+            return obj.rootNode
+        } else if let obj = SceneKitHelper.loadScnNamed(name: name) {
+            return obj.rootNode
+        } else {
+            return nil
+        }
     }
     
     class func createLineNode(fromPos origin: SCNVector3, toPos destination: SCNVector3, color: UIColor) -> SCNNode {
@@ -83,31 +92,25 @@ class Ramp {
         case "quarter":
             return Ramp.getQuarter()
         default:
-            return Ramp.getPipe()
+            return SceneKitHelper.getRootNodeNamed(name) ?? Ramp.getPipe()
         }
     }
     
     class func getPipe() -> SCNNode{
         let obj = SceneKitHelper.loadDaeNamed(name: "pipe")
         let node = obj?.rootNode.childNode(withName: "pipe", recursively: true)!
-        node?.scale = SCNVector3Make(0.0052, 0.0052, 0.0052)
-        node?.position = SCNVector3Make(-1, 5.6, -1)
         return node!
     }
     
     class func getPyramid() -> SCNNode{
         let obj = SceneKitHelper.loadDaeNamed(name: "pyramid")
         let node = obj?.rootNode.childNode(withName: "pyramid", recursively: true)!
-        node?.scale = SCNVector3Make(0.018, 0.018, 0.018)
-        node?.position = SCNVector3Make(-1, 2.5, -1)
         return node!
     }
     
     class func getQuarter() -> SCNNode{
         let obj = SceneKitHelper.loadDaeNamed(name: "quarter")
         let node = obj?.rootNode.childNode(withName: "quarter", recursively: true)!
-        node?.scale = SCNVector3Make(0.018, 0.018, 0.018)
-        node?.position = SCNVector3Make(-1, -1.5, -1)
         return node!
     }
     

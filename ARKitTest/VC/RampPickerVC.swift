@@ -9,13 +9,15 @@
 import UIKit
 import SceneKit
 
-class RampPickerVC: UIViewController {
+class RampPickerVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var sceneView: SCNView!
     var size: CGSize!
     var completion: ((String) -> Void)?
-    
-    
+    var collectionView: UICollectionView!
+    var onAppeared: (()->Void)?
+    var nodeNames = ["pipe","pyramid","quarter", "dodge"]
+    let sceneViewCellIdentifier = "CollectionViewCell"
     init(size: CGSize) {
         super.init(nibName: nil, bundle: nil)
         self.size = size
@@ -29,41 +31,49 @@ class RampPickerVC: UIViewController {
         super.viewDidLoad()
         let frame = CGRect.init(origin: CGPoint.zero, size: size)
         view.frame = frame
-        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapHandler(_:)))
-        view.addGestureRecognizer(tap)
-        sceneView = SCNView(frame: frame)
-        view.insertSubview(sceneView, at: 0)
-        preferredContentSize = size
-        let scene = SceneKitHelper.loadScnNamed(name: "ramps")
-        sceneView.scene = scene
-        let camera = SCNCamera.init()
-        camera.usesOrthographicProjection = true
-        scene?.rootNode.camera = camera
-        
-
-        
-        let pipe = Ramp.getPipe()
-        Ramp.makeRotation(node: pipe)
-        scene?.rootNode.addChildNode(pipe)
-        
-        let pyramid = Ramp.getPyramid()
-        Ramp.makeRotation(node: pyramid)
-        scene?.rootNode.addChildNode(pyramid)
-        
-        let quarter = Ramp.getQuarter()
-        Ramp.makeRotation(node: quarter)
-        scene?.rootNode.addChildNode(quarter)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 3
+        layout.minimumInteritemSpacing = 3
+        collectionView = UICollectionView.init(frame: frame, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        view.insertSubview(collectionView, at: 1)
+        collectionView.register(UINib.init(nibName: sceneViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: sceneViewCellIdentifier)
     }
 
-    @objc func tapHandler(_ sender: UITapGestureRecognizer){
-        let p = sender.location(in: sceneView)
-        let hitResults = sceneView.hitTest(p, options: [:])
-        
-        if hitResults.count > 0, let name = hitResults[0].node.name  {
-            completion?(name)
-        }
+    override func viewDidLayoutSubviews() {
+        collectionView.frame = view.frame
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        onAppeared?()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return  1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return nodeNames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height / 3)
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: sceneViewCellIdentifier, for: indexPath) as! CollectionViewCell
+        cell.configureWithSceneName(name: nodeNames[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nodeName = nodeNames[indexPath.row]
+        completion?(nodeName)
+    }
 }
 
 
