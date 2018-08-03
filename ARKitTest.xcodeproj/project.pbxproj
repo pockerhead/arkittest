@@ -19,6 +19,7 @@
 		FE68F1DA21142ABD007944D3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1D821142ABD007944D3 /* CollectionViewCell.swift */; };
 		FE68F1DB21142ABD007944D3 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */; };
 		FE68F1DD211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */; };
+		FE68F1E02114658E007944D3 /* Ramp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1DF2114658E007944D3 /* Ramp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FE68F1D821142ABD007944D3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
+		FE68F1DF2114658E007944D3 /* Ramp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,9 @@
 		FE68F1BE2112F34F007944D3 /* ARKitTest */ = {
 			isa = PBXGroup;
 			children = (
+				FE68F1E2211465B5007944D3 /* Views */,
+				FE68F1E12114659F007944D3 /* Helpers&Extensions */,
+				FE68F1DE2114657D007944D3 /* Model */,
 				FE68F1D32113027B007944D3 /* VC */,
 				FE68F1BF2112F34F007944D3 /* AppDelegate.swift */,
 				FE68F1C12112F34F007944D3 /* art.scnassets */,
@@ -106,12 +111,34 @@
 			children = (
 				FE68F1C32112F34F007944D3 /* RampPlacerVC.swift */,
 				FE68F1D4211303AC007944D3 /* RampPickerVC.swift */,
-				FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */,
-				FE68F1D821142ABD007944D3 /* CollectionViewCell.swift */,
-				FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */,
-				FE68F1D62113085D007944D3 /* SceneKitHelper.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		FE68F1DE2114657D007944D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE68F1DF2114658E007944D3 /* Ramp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE68F1E12114659F007944D3 /* Helpers&Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE68F1D62113085D007944D3 /* SceneKitHelper.swift */,
+				FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */,
+			);
+			path = "Helpers&Extensions";
+			sourceTree = "<group>";
+		};
+		FE68F1E2211465B5007944D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE68F1D821142ABD007944D3 /* CollectionViewCell.swift */,
+				FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +260,7 @@
 				FE68F1C42112F34F007944D3 /* RampPlacerVC.swift in Sources */,
 				FE68F1D72113085D007944D3 /* SceneKitHelper.swift in Sources */,
 				FE68F1D5211303AC007944D3 /* RampPickerVC.swift in Sources */,
+				FE68F1E02114658E007944D3 /* Ramp.swift in Sources */,
 				FE68F1C02112F34F007944D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
