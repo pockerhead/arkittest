@@ -15,6 +15,8 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
+    @IBOutlet weak var decrSizeButton: UIButton!
+    @IBOutlet weak var incrSizeButton: UIButton!
     @IBOutlet weak var downBtn: UIButton!
     @IBOutlet weak var upBtn: UIButton!
     @IBOutlet weak var rotateButton: UIButton!
@@ -44,20 +46,40 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
         let gesture3 = UILongPressGestureRecognizer.init(target: self, action: #selector(onLongPress(_:)))
         let gesture4 = UIPinchGestureRecognizer.init(target: self, action: #selector(scaleObject(gesture:)))
         let gesture5 = UIRotationGestureRecognizer.init(target: self, action: #selector(rotateNode(_:)))
+        let gesture6 = UILongPressGestureRecognizer.init(target: self, action: #selector(onLongPress(_:)))
+        let gesture7 = UILongPressGestureRecognizer.init(target: self, action: #selector(onLongPress(_:)))
         gesture1.minimumPressDuration = 0.1
         gesture2.minimumPressDuration = 0.1
         gesture3.minimumPressDuration = 0.1
+        gesture6.minimumPressDuration = 0.1
+        gesture7.minimumPressDuration = 0.1
         rotateButton.addGestureRecognizer(gesture1)
         upBtn.addGestureRecognizer(gesture2)
         downBtn.addGestureRecognizer(gesture3)
         sceneView.addGestureRecognizer(gesture4)
         sceneView.addGestureRecognizer(gesture5)
+        incrSizeButton.addGestureRecognizer(gesture6)
+        decrSizeButton.addGestureRecognizer(gesture7)
+        incrSizeButton.layer.cornerRadius = incrSizeButton.frame.width / 2
+        incrSizeButton.layer.shadowRadius = 3
+        incrSizeButton.layer.shadowOpacity = 1
+        incrSizeButton.layer.shadowColor = UIColor.black.cgColor
+        incrSizeButton.layer.shadowOffset = CGSize.init(width: 0, height: 3)
+        decrSizeButton.layer.shadowOffset = CGSize.init(width: 0, height: 3)
+        decrSizeButton.layer.cornerRadius = decrSizeButton.frame.width / 2
+        decrSizeButton.layer.shadowRadius = 3
+        decrSizeButton.layer.shadowOpacity = 1
+        decrSizeButton.layer.shadowColor = UIColor.black.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
+        
         sceneView.session.run(configuration)
+        
+        sceneView.delegate = self
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -154,11 +176,11 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
     
     func placeRamp(postiton: SCNVector3){
         guard let name = selectedNodeName else {return}
-        let ramp = Ramp.getRampForName(name: name)
-        ramp.position = postiton
-        ramp.scale = SCNVector3Make(0.01, 0.01, 0.01)
-        selectedNode = ramp
-        sceneView.scene.rootNode.addChildNode(ramp)
+        let node = SceneKitHelper.getNodeForName(name: name)
+        node.position = postiton
+        node.scale = SCNVector3Make(0.01, 0.01, 0.01)
+        selectedNode = node
+        sceneView.scene.rootNode.addChildNode(node)
     }
     
     @IBAction func deleteRampButtonPressed(_ sender: UIButton) {
@@ -181,6 +203,12 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
                 ramp.runAction(up)
             } else if sender.view === self.downBtn {
                 let down = SCNAction.repeatForever(SCNAction.move(by: SCNVector3Make(0, -0.08, 0), duration: 0.1))
+                ramp.runAction(down)
+            } else if sender.view === self.incrSizeButton {
+                let up = SCNAction.repeatForever(SCNAction.scale(by: 1.3, duration: 0.1))
+                ramp.runAction(up)
+            } else if sender.view === self.decrSizeButton {
+                let down = SCNAction.repeatForever(SCNAction.scale(by: 0.7, duration: 0.1))
                 ramp.runAction(down)
             }
         }

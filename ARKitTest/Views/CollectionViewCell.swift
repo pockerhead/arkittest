@@ -13,6 +13,7 @@ import NVActivityIndicatorView
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sceneView: SCNView!
+    @IBOutlet weak var label: UILabel!
     
     lazy var activity: NVActivityIndicatorView = {
         let size: CGFloat = self.frame.size.height / 2
@@ -22,6 +23,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        label.textColor = .white
         activity.startAnimating()
         setupScene()
     }
@@ -40,6 +42,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     func configureWithSceneName(name: String){
+        label.text = name.capitalized
         switch name {
         case "pipe":
             let pipe = Ramp.getPipe()

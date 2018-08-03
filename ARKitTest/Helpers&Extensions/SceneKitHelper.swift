@@ -79,6 +79,19 @@ class SceneKitHelper {
             $0.removeFromParentNode()
         }
     }
+    
+    class func getNodeForName(name: String) -> SCNNode {
+        switch name {
+        case "pipe":
+            return Ramp.getPipe()
+        case "pyramid":
+            return Ramp.getPyramid()
+        case "quarter":
+            return Ramp.getQuarter()
+        default:
+            return SceneKitHelper.getRootNodeNamed(name) ?? Ramp.getPipe()
+        }
+    }
 }
 
 

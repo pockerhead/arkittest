@@ -21,17 +21,27 @@
                     <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-RR-mFb">
                         <rect key="frame" x="0.0" y="0.0" width="306" height="276"/>
                     </sceneKitView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o7L-Ei-YKD">
+                        <rect key="frame" x="15" y="10" width="276" height="34.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gQY-RR-mFb" secondAttribute="bottom" id="5hT-e0-dsL"/>
+                <constraint firstItem="o7L-Ei-YKD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Bwl-h2-rBR"/>
+                <constraint firstAttribute="trailing" secondItem="o7L-Ei-YKD" secondAttribute="trailing" constant="15" id="NtH-Ik-NYQ"/>
                 <constraint firstItem="gQY-RR-mFb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YUx-Tn-wjs"/>
                 <constraint firstItem="gQY-RR-mFb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="igd-QP-qQT"/>
                 <constraint firstAttribute="trailing" secondItem="gQY-RR-mFb" secondAttribute="trailing" id="oUA-Uw-Vsq"/>
+                <constraint firstItem="o7L-Ei-YKD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="x7m-Zp-oCF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="306" height="276"/>
             <connections>
+                <outlet property="label" destination="o7L-Ei-YKD" id="Xxp-52-Mgc"/>
                 <outlet property="sceneView" destination="gQY-RR-mFb" id="ma9-gu-8sf"/>
             </connections>
             <point key="canvasLocation" x="33" y="23"/>

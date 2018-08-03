@@ -11,18 +11,7 @@ import SceneKit
 
 class Ramp {
     
-    class func getRampForName(name: String) -> SCNNode {
-        switch name {
-        case "pipe":
-            return Ramp.getPipe()
-        case "pyramid":
-            return Ramp.getPyramid()
-        case "quarter":
-            return Ramp.getQuarter()
-        default:
-            return SceneKitHelper.getRootNodeNamed(name) ?? Ramp.getPipe()
-        }
-    }
+    
     
     class func getPipe() -> SCNNode{
         let obj = SceneKitHelper.loadDaeNamed(name: "pipe")
