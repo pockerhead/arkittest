@@ -16,7 +16,7 @@ class RampPickerVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     var completion: ((String) -> Void)?
     var collectionView: UICollectionView!
     var onAppeared: (()->Void)?
-    var nodeNames = ["pipe","pyramid","quarter", "dodge"]
+    var nodeNames = ["pipe","pyramid","quarter", "dodge","charger","maneken"]
     let sceneViewCellIdentifier = "CollectionViewCell"
     init(size: CGSize) {
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +38,8 @@ class RampPickerVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         collectionView = UICollectionView.init(frame: frame, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        view.backgroundColor = .white
         view.insertSubview(collectionView, at: 1)
         collectionView.register(UINib.init(nibName: sceneViewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: sceneViewCellIdentifier)
     }

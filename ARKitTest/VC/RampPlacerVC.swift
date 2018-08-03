@@ -79,7 +79,6 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
         sceneView.session.run(configuration)
         
         sceneView.delegate = self
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {

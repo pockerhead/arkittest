@@ -21,7 +21,7 @@ class SceneKitHelper {
         return SCNScene.init(named: "\(folder)/\(name).scn")
     }
     
-    static func getRootNodeNamed(_ name: String) -> SCNNode?{
+    static func getRootNodeFromSceneNamed(_ name: String) -> SCNNode?{
         if let obj = SceneKitHelper.loadDaeNamed(name: name) {
             return obj.rootNode
         } else if let obj = SceneKitHelper.loadScnNamed(name: name) {
@@ -89,7 +89,7 @@ class SceneKitHelper {
         case "quarter":
             return Ramp.getQuarter()
         default:
-            return SceneKitHelper.getRootNodeNamed(name) ?? Ramp.getPipe()
+            return SceneKitHelper.getRootNodeFromSceneNamed(name) ?? Ramp.getPipe()
         }
     }
 }

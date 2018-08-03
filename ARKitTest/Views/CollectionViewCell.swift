@@ -24,6 +24,10 @@ class CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         label.textColor = .white
+        layer.borderColor = UIColor.white.cgColor
+        layer.masksToBounds = true
+        layer.cornerRadius = 15
+        layer.borderWidth = 2
         activity.startAnimating()
         setupScene()
     }
@@ -60,7 +64,7 @@ class CollectionViewCell: UICollectionViewCell {
             sceneView.scene?.rootNode.addChildNode(quarter)
             return
         default:
-            if let node = SceneKitHelper.getRootNodeNamed(name) {
+            if let node = SceneKitHelper.getRootNodeFromSceneNamed(name) {
                 node.position = SCNVector3Make(0, 0, 0)
                 Ramp.makeRotation(node: node)
                 sceneView.scene?.rootNode.addChildNode(node)
