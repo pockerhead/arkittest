@@ -38,6 +38,9 @@ class CollectionViewCell: UICollectionViewCell {
         let camera = SCNCamera.init()
         camera.usesOrthographicProjection = true
         scene?.rootNode.camera = camera
+        
+        
+
     }
     
     override func prepareForReuse() {

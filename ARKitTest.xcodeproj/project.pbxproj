@@ -20,6 +20,16 @@
 		FE68F1DB21142ABD007944D3 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */; };
 		FE68F1DD211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */; };
 		FE68F1E02114658E007944D3 /* Ramp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1DF2114658E007944D3 /* Ramp.swift */; };
+		FE68F1E4211845BC007944D3 /* LottieTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1E3211845BC007944D3 /* LottieTestVC.swift */; };
+		FE68F1EC21184661007944D3 /* giftrefercode.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1E62118465F007944D3 /* giftrefercode.json */; };
+		FE68F1ED21184661007944D3 /* RibbonFavNo.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1E72118465F007944D3 /* RibbonFavNo.json */; };
+		FE68F1EE21184661007944D3 /* VideoSoon.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1E82118465F007944D3 /* VideoSoon.json */; };
+		FE68F1EF21184661007944D3 /* NoSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1E921184660007944D3 /* NoSearch.json */; };
+		FE68F1F021184661007944D3 /* WorksOnServer.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1EA21184660007944D3 /* WorksOnServer.json */; };
+		FE68F1F121184661007944D3 /* LockedJson.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1EB21184661007944D3 /* LockedJson.json */; };
+		FE68F1F321184690007944D3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68F1F221184690007944D3 /* LottieView.swift */; };
+		FE68F1F521184967007944D3 /* noLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = FE68F1F421184966007944D3 /* noLocation.json */; };
+		FE79536D2119B20D00D9AE40 /* Wait.json in Resources */ = {isa = PBXBuildFile; fileRef = FE79536C2119B20D00D9AE40 /* Wait.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +50,16 @@
 		FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		FE68F1DC211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		FE68F1DF2114658E007944D3 /* Ramp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramp.swift; sourceTree = "<group>"; };
+		FE68F1E3211845BC007944D3 /* LottieTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieTestVC.swift; sourceTree = "<group>"; };
+		FE68F1E62118465F007944D3 /* giftrefercode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = giftrefercode.json; sourceTree = "<group>"; };
+		FE68F1E72118465F007944D3 /* RibbonFavNo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RibbonFavNo.json; sourceTree = "<group>"; };
+		FE68F1E82118465F007944D3 /* VideoSoon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoSoon.json; sourceTree = "<group>"; };
+		FE68F1E921184660007944D3 /* NoSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoSearch.json; sourceTree = "<group>"; };
+		FE68F1EA21184660007944D3 /* WorksOnServer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WorksOnServer.json; sourceTree = "<group>"; };
+		FE68F1EB21184661007944D3 /* LockedJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LockedJson.json; sourceTree = "<group>"; };
+		FE68F1F221184690007944D3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		FE68F1F421184966007944D3 /* noLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noLocation.json; sourceTree = "<group>"; };
+		FE79536C2119B20D00D9AE40 /* Wait.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wait.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +112,7 @@
 		FE68F1BE2112F34F007944D3 /* ARKitTest */ = {
 			isa = PBXGroup;
 			children = (
+				FE68F1E521184655007944D3 /* Animations */,
 				FE68F1E2211465B5007944D3 /* Views */,
 				FE68F1E12114659F007944D3 /* Helpers&Extensions */,
 				FE68F1DE2114657D007944D3 /* Model */,
@@ -110,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				FE68F1C32112F34F007944D3 /* RampPlacerVC.swift */,
+				FE68F1E3211845BC007944D3 /* LottieTestVC.swift */,
 				FE68F1D4211303AC007944D3 /* RampPickerVC.swift */,
 			);
 			path = VC;
@@ -136,9 +158,25 @@
 			isa = PBXGroup;
 			children = (
 				FE68F1D821142ABD007944D3 /* CollectionViewCell.swift */,
+				FE68F1F221184690007944D3 /* LottieView.swift */,
 				FE68F1D921142ABD007944D3 /* CollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FE68F1E521184655007944D3 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				FE68F1E62118465F007944D3 /* giftrefercode.json */,
+				FE68F1EB21184661007944D3 /* LockedJson.json */,
+				FE68F1E921184660007944D3 /* NoSearch.json */,
+				FE79536C2119B20D00D9AE40 /* Wait.json */,
+				FE68F1E72118465F007944D3 /* RibbonFavNo.json */,
+				FE68F1F421184966007944D3 /* noLocation.json */,
+				FE68F1E82118465F007944D3 /* VideoSoon.json */,
+				FE68F1EA21184660007944D3 /* WorksOnServer.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,10 +240,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE68F1C22112F34F007944D3 /* art.scnassets in Resources */,
+				FE68F1ED21184661007944D3 /* RibbonFavNo.json in Resources */,
+				FE68F1EF21184661007944D3 /* NoSearch.json in Resources */,
+				FE68F1F121184661007944D3 /* LockedJson.json in Resources */,
 				FE68F1CC2112F350007944D3 /* LaunchScreen.storyboard in Resources */,
+				FE68F1F021184661007944D3 /* WorksOnServer.json in Resources */,
 				FE68F1C92112F350007944D3 /* Assets.xcassets in Resources */,
+				FE68F1EE21184661007944D3 /* VideoSoon.json in Resources */,
+				FE68F1EC21184661007944D3 /* giftrefercode.json in Resources */,
+				FE68F1F521184967007944D3 /* noLocation.json in Resources */,
 				FE68F1C72112F34F007944D3 /* Main.storyboard in Resources */,
 				FE68F1DB21142ABD007944D3 /* CollectionViewCell.xib in Resources */,
+				FE79536D2119B20D00D9AE40 /* Wait.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,10 +266,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ARKitTest/Pods-ARKitTest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -257,11 +305,13 @@
 			files = (
 				FE68F1DD211454E7007944D3 /* UIViewController + NVActivityIndicatorView.swift in Sources */,
 				FE68F1DA21142ABD007944D3 /* CollectionViewCell.swift in Sources */,
+				FE68F1F321184690007944D3 /* LottieView.swift in Sources */,
 				FE68F1C42112F34F007944D3 /* RampPlacerVC.swift in Sources */,
 				FE68F1D72113085D007944D3 /* SceneKitHelper.swift in Sources */,
 				FE68F1D5211303AC007944D3 /* RampPickerVC.swift in Sources */,
 				FE68F1E02114658E007944D3 /* Ramp.swift in Sources */,
 				FE68F1C02112F34F007944D3 /* AppDelegate.swift in Sources */,
+				FE68F1E4211845BC007944D3 /* LottieTestVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

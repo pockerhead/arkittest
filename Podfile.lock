@@ -1,18 +1,22 @@
 PODS:
+  - lottie-ios (2.5.0)
   - NVActivityIndicatorView (4.3.0):
     - NVActivityIndicatorView/Presenter (= 4.3.0)
   - NVActivityIndicatorView/Presenter (4.3.0)
 
 DEPENDENCIES:
+  - lottie-ios
   - NVActivityIndicatorView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - lottie-ios
     - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
 
-PODFILE CHECKSUM: 990cae183c8460b2f1ba59c67a66da4ecbea372d
+PODFILE CHECKSUM: 17ffe7c3b5367955831c5a200888f1bd7e18367c
 
 COCOAPODS: 1.5.3
